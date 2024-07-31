@@ -6,6 +6,8 @@ const getClosedCharacter = (openCharacter) => {
       return "}";
     case '"':
       return '"';
+    default:
+      return "undefined";
   }
 };
 export const findObject = (object, key) => {
@@ -16,7 +18,6 @@ export const findObject = (object, key) => {
   let firstStringReapeted = 0;
   let closedCharacter = "";
   const res = dataSplit.map((stirngData) => {
-    console.log(stirngData);
     let resolve = "";
     for (let index = 0; index < stirngData.length; index++) {
       const character = stirngData[index];
@@ -40,6 +41,13 @@ export const findObject = (object, key) => {
         closedCharacter != '"'
       ) {
         resolve = stirngData.substring(0, index + 1);
+        break;
+      }
+      if (
+        closedCharacter == "undefined" &&
+        (character == "," || character == "}")
+      ) {
+        resolve = stirngData.substring(0, index);
         break;
       }
     }
