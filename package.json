@@ -1,6 +1,6 @@
 {
   "name": "get-data-from-objects",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "description": "this package will allow to get objects,arrays and values from a object across the itself key",
   "main": "dist/index.js",
